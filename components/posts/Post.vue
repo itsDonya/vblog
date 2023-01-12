@@ -36,7 +36,7 @@ export default {
       type: String,
     },
     date: {
-      type: Date,
+      type: [String, Date],
       required: true,
     },
     author: {

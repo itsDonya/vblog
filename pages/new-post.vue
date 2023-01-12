@@ -77,6 +77,7 @@ export default {
         author: "",
         category: "",
         body: "",
+        date: new Date(),
         thumbnailLink: "",
       },
     };
@@ -88,7 +89,8 @@ export default {
   },
   methods: {
     addPost() {
-      // ...
+      this.$store.dispatch("addPost", this.post);
+      this.$router.push("/posts");
     },
   },
 };

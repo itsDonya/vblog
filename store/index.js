@@ -32,9 +32,22 @@ export const state = () => ({
   ],
 });
 
-export const mutations = {};
+export const mutations = {
+  addPost(state, post) {
+    state.posts.push(post);
+  },
+};
 
-export const actions = {};
+export const actions = {
+  addPost({ state, commit }, postDetails) {
+    // Post details => title, author, category, date, body, thumbnailLink
+    const post = {
+      id: state.posts.length + 1,
+      ...postDetails,
+    };
+    commit("addPost", post);
+  },
+};
 
 export const getters = {
   posts(state) {

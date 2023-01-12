@@ -58,12 +58,6 @@ export default {
    ** Build configuration
    */
   build: {
-    // postcss: {
-    //   plugins: {
-    //     tailwindcss: {},
-    //     autoprefixer: {},
-    //   },
-    // },
     /*
      ** You can extend webpack config here
      */

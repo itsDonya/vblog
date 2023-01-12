@@ -17,7 +17,7 @@ const months = [
 
 function format(inputDate) {
   const date = new Date(inputDate);
-  const day = date.getDay();
+  const day = date.getDate();
   const month = months[date.getMonth()];
   const year = date.getFullYear();
   const fullDate = `${month} ${day}, ${year}`;
