@@ -29,6 +29,12 @@ export const actions = {
       id: state.posts.length + 1,
       ...postDetails,
     };
+
+    this.$axios.$post(
+      "https://vblog-vue-default-rtdb.firebaseio.com/posts.json",
+      post
+    );
+
     commit("addPost", post);
   },
 };
