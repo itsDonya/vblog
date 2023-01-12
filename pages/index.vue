@@ -1,7 +1,5 @@
 <template>
-  <article>
-    <!-- <postsPostList /> -->
-  </article>
+  <article></article>
 </template>
 
 <script>
