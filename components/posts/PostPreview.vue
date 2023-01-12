@@ -30,7 +30,7 @@ export default {
       required: true,
     },
     date: {
-      type: String,
+      type: [String, Date],
       required: true,
     },
     body: {

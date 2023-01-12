@@ -17,7 +17,7 @@ export const state = () => ({
       body: "Est sit ea dignissimos hic modi! Nesciunt ratione natus itaque repudiandae veritatis? Dignissimos dolorem est velit nulla libero nobis fuga, obcaecati dolor eius sint. Cumque nesciunt dignissimos natus inventore ad iusto voluptatibus at. At quia praesentium atque sed nihil officiis, amet distinctio asperiores, accusamus et aut vel molestias sunt repudiandae temporibus autem labore quasi reiciendis quisquam! Amet, perspiciatis temporibus. Repellendus animi, distinctio similique quaerat quas totam vero, dolor laboriosam ut ipsam neque! Odio enim perspiciatis ab omnis mollitia velit tenetur dolor consectetur inventore placeat, nostrum quasi reiciendis et quas. Quo, culpa. Deserunt tempora ducimus eius maxime ipsa aliquid enim fuga at corrupti, nemo exercitationem nesciunt asperiores laborum est dolorum recusandae autem tempore praesentium molestiae. Veniam impedit tenetur cum beatae delectus fugit. Laudantium eos dolorum libero officia, suscipit blanditiis harum voluptatem nesciunt minima voluptas temporibus assumenda aliquid excepturi aliquam facere reiciendis tenetur, sed impedit at quisquam quam. Aut ducimus odit laudantium tenetur, nobis odio reiciendis enim sed perferendis nam nemo, quas, molestiae repellendus. Nostrum, incidunt! Voluptate nemo blanditiis quaerat ut sapiente voluptas veniam sint!",
       author: "Ginny luv",
       date: "Thu Feb 22 2017 01:02:01 GMT+0330 (Iran Standard Time)",
-      category: "other",
+      category: "animals",
     },
     {
       id: 3,
@@ -28,6 +28,14 @@ export const state = () => ({
       author: "Someone",
       date: "Thu Jan 18 2020 01:02:01 GMT+0330 (Iran Standard Time)",
       category: "sports",
+    },
+    {
+      id: 4,
+      title: "Who is cat/dog person?",
+      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, optio soluta illum nobis provident debitis qui sint quos possimus blanditiis culpa, quas ipsa dolores quae iure praesentium est sit ea dignissimos hic modi! Nesciunt ratione natus itaque repudiandae veritatis? Dignissimos dolorem est velit nulla libero nobis fuga, obcaecati dolor eius sint. Cumque nesciunt dignissimos natus inventore ad iusto voluptatibus at. At quia praesentium atque sed nihil officiis, amet distinctio asperiores, accusamus et aut vel molestias sunt repudiandae temporibus autem labore quasi reiciendis quisquam! Amet, perspiciatis temporibus. Repellendus animi, distinctio similique quaerat quas totam vero, dolor laboriosam ut ipsam neque! Odio enim perspiciatis ab omnis mollitia velit tenetur dolor consectetur inventore placeat, nostrum quasi reiciendis et quas. Quo, culpa. Deserunt tempora ducimus eius maxime ipsa aliquid enim fuga at corrupti, nemo exercitationem nesciunt asperiores laborum est dolorum recusandae autem tempore praesentium molestiae. Veniam impedit tenetur cum beatae delectus fugit. Laudantium eos dolorum libero officia, suscipit blanditiis harum voluptatem nesciunt minima voluptas temporibus assumenda aliquid excepturi aliquam facere reiciendis tenetur, sed impedit at quisquam quam. Aut ducimus odit laudantium tenetur, nobis odio reiciendis enim sed perferendis nam nemo, quas, molestiae repellendus. Nostrum, incidunt! Voluptate nemo blanditiis quaerat ut sapiente voluptas veniam sint!",
+      author: "Donya Davoodi",
+      date: "Thu Dec 18 2023 01:02:01 GMT+0330 (Iran Standard Time)",
+      category: "animals",
     },
   ],
 });
@@ -50,10 +58,13 @@ export const actions = {
 };
 
 export const getters = {
-  posts(state) {
+  getPosts(state) {
     return state.posts;
   },
   getPostById: (state) => (id) => {
     return state.posts.find((post) => post.id == id);
+  },
+  getPostByCategory: (state) => (categoryName) => {
+    return state.posts.filter((post) => post.category === categoryName);
   },
 };

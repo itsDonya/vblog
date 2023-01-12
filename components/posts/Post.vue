@@ -4,12 +4,18 @@
     class="w-96 border-2 border-emerald-400 group rounded-xl p-5 flex flex-col items-start gap-3 hover:shadow-xl transition-all"
   >
     <img :src="thumbnailImg" class="w-full rounded-xl" :alt="title" />
-    <h2
-      class="text-2xl font-bold text-emerald-500 group-hover:border-l-8 group-hover:pl-2 border-emerald-600 transition-all"
-    >
-      {{ title }}
-    </h2>
+    <div class="w-full flex items-center justify-between">
+      <h2
+        class="text-2xl font-bold text-emerald-400 group-hover:border-l-8 group-hover:pl-2 border-emerald-600 transition-all"
+      >
+        {{ title }}
+      </h2>
+      <span class="px-2 py-1 text-xs text-white bg-zinc-500 rounded">{{
+        category
+      }}</span>
+    </div>
     <p class="text-zinc-600">{{ body | substringText }}</p>
+
     <div class="w-full flex items-center justify-between">
       <p class="text-xs text-zinc-400">Posted at {{ date | filterDate }}</p>
       <p class="text-xs text-zinc-400">Written by {{ author }}</p>
@@ -40,6 +46,10 @@ export default {
       required: true,
     },
     author: {
+      type: String,
+      required: true,
+    },
+    category: {
       type: String,
       required: true,
     },
