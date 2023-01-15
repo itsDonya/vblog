@@ -9,7 +9,7 @@
       <input
         type="text"
         name="email"
-        v-model="email"
+        v-model="user.email"
         v-validate="'required|email'"
         class="w-full px-2 py-0.5 bg-inherit text-zinc-500 rounded border-[1px] border-emerald-500 focus:ring-2 ring-emerald-500/30 outline-none transition-all"
       />
@@ -23,8 +23,8 @@
         <input
           :type="passwordVisibilityMode"
           name="password"
-          v-model="password"
-          ref="passwordEl"
+          v-model="user.password"
+          ref="password"
           v-validate="'required|min:6'"
           class="w-full px-2 py-0.5 bg-inherit text-zinc-500 rounded border-[1px] border-emerald-500 focus:ring-2 ring-emerald-500/30 outline-none transition-all"
         />
@@ -43,13 +43,13 @@
       <span class="text-sm text-emerald-500">Confirm Password</span>
       <input
         type="password"
-        name="password_confirmation"
+        name="entered password"
         v-model="passwordConfirmation"
         v-validate="'required|confirmed:password'"
         class="w-full px-2 py-0.5 bg-inherit text-zinc-500 rounded border-[1px] border-emerald-500 focus:ring-2 ring-emerald-500/30 outline-none transition-all"
       />
       <p class="text-xs text-red-500">
-        {{ errors.first("password_confirmation") }}
+        {{ errors.first("entered password") }}
       </p>
     </label>
 
@@ -63,7 +63,7 @@
         {{ mode }}
       </button>
       <p
-        @click="changeSinginMode"
+        @click="changeSingInMode"
         class="text-sm text-emerald-600 cursor-pointer"
       >
         {{ insteadMode }} instead
@@ -77,8 +77,10 @@ export default {
   data() {
     return {
       mode: "Login",
-      email: "",
-      password: "",
+      user: {
+        email: "",
+        password: "",
+      },
       passwordConfirmation: "",
       passwordVisibilityMode: "password",
     };
@@ -94,7 +96,7 @@ export default {
     },
   },
   methods: {
-    changeSinginMode() {
+    changeSingInMode() {
       if (this.mode === "Login") {
         this.mode = "Sign up";
       } else {
