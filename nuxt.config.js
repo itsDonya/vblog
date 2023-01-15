@@ -1,5 +1,5 @@
 export default {
-  mode: "universal",
+  mode: "ssr",
   /*
    ** Headers of the page
    */
@@ -33,6 +33,7 @@ export default {
     "~plugins/filter-date.js",
     "~plugins/substring.js",
     "~plugins/split-words.js",
+    "~plugins/vee-validate.js",
   ],
   /*
    ** Nuxt.js dev-modules
