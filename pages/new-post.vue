@@ -1,6 +1,6 @@
 <template>
   <article class="py-8 flex items-center justify-center">
-    <UIBaseForm class="w-96">
+    <BaseForm class="w-96">
       <!-- Post title -->
       <label class="w-full flex flex-col items-start gap-1">
         <span class="text-zinc-600">Post title</span>
@@ -77,7 +77,7 @@
       >
         Post
       </button>
-    </UIBaseForm>
+    </BaseForm>
   </article>
 </template>
 

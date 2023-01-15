@@ -1,7 +1,7 @@
 <template>
   <nav class="flex items-center justify-center gap-6">
-    <UINavLink path="/">Home</UINavLink>
-    <UINavLink path="/posts">Posts</UINavLink>
-    <UINavLink path="/category">Category</UINavLink>
+    <NavLink path="/">Home</NavLink>
+    <NavLink path="/posts">Posts</NavLink>
+    <NavLink path="/category">Category</NavLink>
   </nav>
 </template>

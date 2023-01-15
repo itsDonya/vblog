@@ -1,8 +1,8 @@
-import PostPreview from '../../components/posts/PostPreview.vue';
+import PostPreview from '~/components/posts/PostPreview.vue';
 
 <template>
   <article class="w-full py-4 flex items-center justify-center">
-    <postsPostPreview v-bind="post" />
+    <PostPreview v-bind="post" />
   </article>
 </template>
 

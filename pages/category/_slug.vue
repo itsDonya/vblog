@@ -1,6 +1,6 @@
 <template>
   <article class="py-6 flex flex-col items-center justify-start gap-4">
-    <postsPostList :posts="posts" />
+    <PostList :posts="posts" />
   </article>
 </template>
 

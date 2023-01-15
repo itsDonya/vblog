@@ -11,12 +11,12 @@
     <!-- Auth buttons -->
     <div class="flex items-center justify-center gap-4">
       <nuxt-link v-if="userLoggedIn" to="/new-post"
-        ><UIButton>New Post</UIButton></nuxt-link
+        ><Button>New Post</Button></nuxt-link
       >
       <nuxt-link v-if="userLoggedIn" to="/auth"
-        ><UIButton :filled="true">Login</UIButton></nuxt-link
+        ><Button :filled="true">Login</Button></nuxt-link
       >
-      <UIButton v-if="!userLoggedIn">Log out</UIButton>
+      <Button v-if="!userLoggedIn">Log out</Button>
     </div>
   </header>
 </template>

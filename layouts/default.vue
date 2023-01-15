@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen bg-zinc-100">
-    <layoutsHeader />
+    <Header />
     <main>
       <nuxt />
     </main>

@@ -1,5 +1,5 @@
 <template>
-  <UIBaseForm class="w-80">
+  <BaseForm class="w-80">
     <!-- Logo -->
     <Logo class="text-emerald-600 select-none" />
 
@@ -30,7 +30,7 @@
         />
         <img
           @click="togglePasswordVisibility"
-          :src="require('../../static/icons/' + visibilityIcon + '.svg')"
+          :src="require('~/static/icons/' + visibilityIcon + '.svg')"
           class="w-4 cursor-pointer"
           alt=""
         />
@@ -69,7 +69,7 @@
         {{ insteadMode }} instead
       </p>
     </div>
-  </UIBaseForm>
+  </BaseForm>
 </template>
 
 <script>

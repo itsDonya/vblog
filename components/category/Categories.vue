@@ -5,19 +5,18 @@
       class="px-2 py-0.5 text-sm text-emerald-500 border-[1px] border-emerald-500 rounded hover:bg-emerald-500 hover:text-white transition-all"
       >all</nuxt-link
     >
-    <nuxt-link
+    <CategoryItem
       v-for="(category, i) of categories"
-      :to="'/category/' + category"
+      :categoryName="category"
       :key="i"
-      class="px-2 py-0.5 text-sm text-emerald-500 border-[1px] border-emerald-500 rounded hover:bg-emerald-500 hover:text-white transition-all"
     >
       {{ category | split }}
-    </nuxt-link>
+    </CategoryItem>
   </section>
 </template>
 
 <script>
-import categories from "../../static/categories";
+import categories from "~/static/categories";
 export default {
   computed: {
     categories() {

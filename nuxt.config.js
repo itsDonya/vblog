@@ -17,7 +17,14 @@ export default {
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
   // Auto import components
-  components: true,
+  // components: true,
+  components: [
+    true,
+    {
+      path: "~/components", // will get any components nested in let's say /components/test too
+      pathPrefix: false,
+    },
+  ],
   /*
    ** Customize the progress-bar color
    */
