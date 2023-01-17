@@ -1,75 +1,50 @@
 <template>
   <article class="py-8 flex items-center justify-center">
-    <BaseForm class="w-96">
+    <FormBase form-title="New Post">
       <!-- Post title -->
-      <label class="w-full flex flex-col items-start gap-1">
-        <span class="text-zinc-600">Post title</span>
-        <input
-          type="text"
-          name="post title"
-          v-validate="'required'"
-          v-model="post.title"
-          class="w-full bg-inherit rounded px-2 border-[1px] border-emerald-500 focus:outline-none focus:ring-4 ring-emerald-500/20"
-        />
-        <p class="text-xs text-red-500">{{ errors.first("post title") }}</p>
-      </label>
+      <FormInput
+        :modelValue="post"
+        input-label="Post title"
+        input-name="title"
+        input-type="text"
+        validation-rules="required"
+      />
+
       <!-- Author name -->
-      <label class="w-full flex flex-col items-start gap-1">
-        <span class="text-zinc-600">Author name</span>
-        <input
-          type="text"
-          name="author name"
-          v-validate="'required'"
-          v-model="post.author"
-          class="w-full bg-inherit rounded px-2 border-[1px] border-emerald-500 focus:outline-none focus:ring-4 ring-emerald-500/20"
-        />
-        <p class="text-xs text-red-500">{{ errors.first("author name") }}</p>
-      </label>
+      <FormInput
+        :modelValue="post"
+        input-label="Author name"
+        input-name="author"
+        input-type="text"
+        validation-rules="required"
+      />
+
       <!-- Category -->
-      <label class="w-full flex flex-col items-start gap-1">
-        <span class="text-zinc-600">Category</span>
-        <select
-          name="category"
-          v-model="post.category"
-          v-validate="'required'"
-          class="w-full py-0.5 bg-inherit rounded px-2 border-[1px] border-emerald-500 focus:outline-none focus:ring-4 ring-emerald-500/20"
-        >
-          <option value="" selected disabled>Choose a category</option>
-          <option
-            v-for="(category, i) of categories"
-            :value="category"
-            :key="i"
-          >
-            {{ category }}
-          </option>
-        </select>
-        <p class="text-xs text-red-500">{{ errors.first("category") }}</p>
-      </label>
+      <FormSelect
+        :modelValue="post"
+        :options="categories"
+        input-label="Category"
+        input-name="category"
+        validation-rules="required"
+      />
+
       <!-- Content -->
-      <label class="w-full flex flex-col items-start gap-1">
-        <span class="text-zinc-600">Content</span>
-        <textarea
-          type="text"
-          rows="10"
-          name="content"
-          v-validate="'required'"
-          v-model="post.body"
-          class="w-full bg-inherit rounded px-2 border-[1px] border-emerald-500 focus:outline-none focus:ring-4 ring-emerald-500/20"
-        ></textarea>
-        <p class="text-xs text-red-500">{{ errors.first("content") }}</p>
-      </label>
+      <FormTextArea
+        :modelValue="post"
+        rows="10"
+        input-label="Content"
+        input-name="body"
+        validation-rules="required|min:50"
+      />
+
       <!-- Thumbnail link -->
-      <label class="w-full flex flex-col items-start gap-1">
-        <span class="text-zinc-600">Thumbnail link</span>
-        <input
-          v-model="post.thumbnailLink"
-          type="text"
-          name="thumbnail"
-          v-validate="{ url: { require_protocol: true } }"
-          class="w-full bg-inherit rounded px-2 border-[1px] border-emerald-500 focus:outline-none focus:ring-4 ring-emerald-500/20"
-        />
-        <p class="text-xs text-red-500">{{ errors.first("thumbnail") }}</p>
-      </label>
+      <FormInput
+        :modelValue="post"
+        input-label="Thumbnail link"
+        input-name="thumbnailLink"
+        input-type="url"
+        :validation-rules="{ url: { require_protocol: true } }"
+      />
 
       <button
         @click.prevent="validateBeforeSubmit"
@@ -77,7 +52,7 @@
       >
         Post
       </button>
-    </BaseForm>
+    </FormBase>
   </article>
 </template>
 

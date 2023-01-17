@@ -21,7 +21,6 @@
   </header>
 </template>
 
-//
 <script>
 export default {
   data() {
