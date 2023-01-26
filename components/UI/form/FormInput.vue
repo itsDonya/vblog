@@ -3,7 +3,6 @@
     class="w-[100%] flex flex-col items-start"
     :rules="validationRules"
     :name="inputName"
-    :vid="inputName"
     v-slot="{ errors }"
   >
     <label class="w-full flex flex-col items-start gap-1">
@@ -12,7 +11,6 @@
         <input
           :type="inputType"
           class="w-full px-2 py-0.5 bg-inherit text-zinc-500 rounded border-[1px] border-emerald-500 focus:ring-2 ring-emerald-600/40 outline-none transition-all"
-          :ref="refName"
           v-model="modelValue[inputName]"
         />
         <slot />
@@ -46,9 +44,6 @@ export default {
     },
     validationRules: {
       type: [String, Object],
-    },
-    refName: {
-      type: String,
     },
   },
 };

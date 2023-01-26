@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="{ filled: filled }"
+    :class="$style.filled"
     class="bg-inherit border-2 border-white px-4 py-1 font-semibold rounded text-white hover:bg-white/60 transition-all"
   >
     <slot />
@@ -18,7 +18,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style module>
 .filled {
   color: #34d399;
   background-color: white;

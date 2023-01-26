@@ -13,10 +13,10 @@
       <nuxt-link v-if="userLoggedIn" to="/new-post"
         ><Button>New Post</Button></nuxt-link
       >
-      <nuxt-link v-if="userLoggedIn" to="/auth"
+      <nuxt-link v-if="!userLoggedIn" to="/auth"
         ><Button :filled="true">Login</Button></nuxt-link
       >
-      <Button v-if="!userLoggedIn">Log out</Button>
+      <Button v-else>Log out</Button>
     </div>
   </header>
 </template>

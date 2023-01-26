@@ -19,8 +19,7 @@ export default {
   computed: {
     // Show number of posts exist in this category
     categoryQty() {
-      const postList = this.$store.getters.getPostByCategory(this.categoryName);
-      return postList.length;
+      return this.$store.getters.getPostByCategory(this.categoryName);
     },
   },
 };

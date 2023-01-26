@@ -14,7 +14,7 @@
         category
       }}</span>
     </div>
-    <p class="text-zinc-600">{{ body | substringText }}</p>
+    <p class="text-zinc-600 line-clamp-3">{{ body }}</p>
 
     <div class="w-full flex items-center justify-between">
       <p class="text-xs text-zinc-400">Posted at {{ date | filterDate }}</p>

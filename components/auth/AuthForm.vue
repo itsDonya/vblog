@@ -1,5 +1,5 @@
 <template>
-  <FormBase form-title="Sign In" @submit.prevent="validateBeforeSubmit">
+  <form-base form-title="Sign In" :on-submit="onSubmit">
     <!-- Email -->
     <FormInput
       :modelValue="user"
@@ -50,7 +50,7 @@
         {{ insteadMode }} instead
       </p>
     </div>
-  </FormBase>
+  </form-base>
 </template>
 
 <script>
@@ -84,12 +84,8 @@ export default {
         this.mode = "Login";
       }
     },
-    validateBeforeSubmit() {
-      this.$validator.validateAll().then((result) => {
-        if (result) {
-          // Valid
-        }
-      });
+    onSubmit() {
+      // Login logic here
     },
     togglePasswordVisibility() {
       if (this.passwordVisibilityMode === "text") {

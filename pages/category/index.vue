@@ -3,3 +3,13 @@
     <categories />
   </article>
 </template>
+
+<script>
+export default {
+  middleware({ store }) {
+    if (!store.state.fetched) {
+      store.dispatch("fetchPosts");
+    }
+  },
+};
+</script>

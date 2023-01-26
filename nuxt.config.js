@@ -38,7 +38,6 @@ export default {
    */
   plugins: [
     "~plugins/filter-date.js",
-    "~plugins/substring.js",
     "~plugins/split-words.js",
     "~plugins/vee-validate.js",
   ],
@@ -66,6 +65,7 @@ export default {
    ** Build configuration
    */
   build: {
+    transpile: ["vee-validate/dist/rules"],
     /*
      ** You can extend webpack config here
      */

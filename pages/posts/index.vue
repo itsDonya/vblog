@@ -11,5 +11,10 @@ export default {
       return this.$store.getters.getPosts;
     },
   },
+  mounted() {
+    if (!this.$store.state.fetched) {
+      this.$store.dispatch("fetchPosts");
+    }
+  },
 };
 </script>

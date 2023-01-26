@@ -1,6 +1,6 @@
 <template>
   <article class="py-8 flex items-center justify-center">
-    <FormBase form-title="New Post">
+    <FormBase form-title="New Post" @on-submit="onSubmit">
       <!-- Post title -->
       <FormInput
         :modelValue="post"
@@ -47,7 +47,7 @@
       />
 
       <button
-        @click.prevent="validateBeforeSubmit"
+        type="submit"
         class="w-full py-2 font-bold text-white bg-emerald-500 rounded hover:shadow-lg transition-all"
       >
         Post
@@ -81,13 +81,8 @@ export default {
       this.$store.dispatch("addPost", this.post);
       this.$router.push("/posts");
     },
-    validateBeforeSubmit() {
-      this.$validator.validateAll().then((result) => {
-        if (result) {
-          // Valid
-          this.addPost();
-        }
-      });
+    onSubmit() {
+      // New post logic here
     },
   },
 };

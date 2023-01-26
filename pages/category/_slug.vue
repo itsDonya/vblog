@@ -6,14 +6,16 @@
 
 <script>
 export default {
+  middleware({ store }) {
+    if (!store.state.fetched) {
+      store.dispatch("fetchPosts");
+    }
+  },
   computed: {
     posts() {
       const postCategory = this.$route.params.slug;
-      if (postCategory === "all") {
-        return this.$store.getters.getPosts;
-      } else {
-        return this.$store.getters.getPostByCategory(postCategory);
-      }
+
+      return this.$store.getters.getPostByCategory(postCategory);
     },
   },
 };
