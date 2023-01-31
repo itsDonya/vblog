@@ -4,13 +4,11 @@ import {
   required,
   min,
   max,
-  numeric,
   length,
   confirmed,
 } from "vee-validate/dist/rules";
 
 extend("required", required);
-extend("numeric", numeric);
 extend("max", max);
 extend("email", email);
 extend("min", min);

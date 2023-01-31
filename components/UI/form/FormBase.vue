@@ -19,6 +19,7 @@
 import { ValidationObserver } from "vee-validate";
 
 export default {
+  components: { ValidationObserver },
   props: {
     onSubmit: {
       type: Function,
@@ -28,16 +29,15 @@ export default {
       type: String,
     },
   },
-  methods: {
-    addError(key, value) {
-      this.$validation.setErrors({
-        [key]: value,
-      });
-    },
-    reset() {
-      this.$validation.reset();
-    },
-  },
-  components: { ValidationObserver },
+  // methods: {
+  //   addError(key, value) {
+  //     this.$validation.setErrors({
+  //       [key]: value,
+  //     });
+  //   },
+  //   reset() {
+  //     this.$validation.reset();
+  //   },
+  // },
 };
 </script>

@@ -24,6 +24,7 @@
       input-name="category"
       :options="categories"
       :modelValue="editedPost"
+      :selectedOption="category"
       validation-rules="required"
     />
 
@@ -42,9 +43,7 @@
       input-name="thumbnailLink"
       input-type="url"
       :modelValue="editedPost"
-      validation-rules=""
     />
-    <!-- { url: { require_protocol: true } } -->
 
     <button
       type="submit"
