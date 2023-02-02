@@ -1,6 +1,7 @@
 <template>
   <article class="min-h-full py-6 flex items-center justify-center">
-    <PostList :posts="posts" />
+    <PostList v-if="posts" :posts="posts" />
+    <LoaderIcon v-else />
   </article>
 </template>
 

@@ -57,10 +57,7 @@ export default {
   computed: {
     thumbnailImg() {
       // Show default image if thumbnailLink doesn't exist
-      return (
-        this.thumbnailLink ||
-        "https://oxyo.ru/image/cache/catalog/oxyo-demo/blog-1140x700.png"
-      );
+      return this.thumbnailLink || "./img/non-img.png";
     },
   },
 };
