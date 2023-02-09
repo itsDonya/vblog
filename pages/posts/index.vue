@@ -12,7 +12,7 @@ export default {
       return this.$store.getters.getPosts;
     },
   },
-  mounted() {
+  created() {
     if (!this.$store.state.fetched) {
       this.$store.dispatch("fetchPosts");
     }

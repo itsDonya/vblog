@@ -1,6 +1,6 @@
 <template>
   <nuxt-link
-    :to="'/posts/' + id"
+    :to="'/posts/' + fbID"
     class="w-96 border-2 border-emerald-400 group rounded-xl p-5 flex flex-col items-start gap-3 hover:shadow-xl transition-all"
   >
     <img :src="thumbnailImg" class="w-full rounded-xl" :alt="title" />
@@ -26,7 +26,7 @@
 <script>
 export default {
   props: {
-    id: {
+    fbID: {
       type: [String, Number],
       required: true,
     },

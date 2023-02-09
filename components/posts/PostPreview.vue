@@ -1,10 +1,9 @@
 <template>
   <div class="max-w-xl flex flex-col items-start justify-start gap-4">
-    <!-- <div class="w-full flex items-center justify-between gap-6"> -->
     <div class="w-full">
       <h1 class="text-3xl text-emerald-500 font-bold">
         {{ title }}
-        <nuxt-link :to="'/posts/' + id + '/edit'" class="inline text-lg">
+        <nuxt-link :to="'/posts/' + fbID + '/edit'" class="inline text-lg">
           (
           <img
             src="~/static/icons/pencil.png"
@@ -33,7 +32,7 @@
 <script>
 export default {
   props: {
-    id: [String, Number],
+    fbID: String,
     title: {
       type: String,
       required: true,

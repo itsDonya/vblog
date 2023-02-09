@@ -1,7 +1,7 @@
 <template>
   <article class="py-8 flex items-center justify-center">
-    <FormBase form-title="New Post" @on-submit="onSubmit">
-      <!-- Post title -->
+    <form-base form-title="New Post" :on-submit="onSubmit">
+      <!-- Title -->
       <FormInput
         :modelValue="post"
         input-label="Post title"
@@ -10,7 +10,7 @@
         validation-rules="required"
       />
 
-      <!-- Author name -->
+      <!-- Author -->
       <FormInput
         :modelValue="post"
         input-label="Author name"
@@ -43,7 +43,6 @@
         input-label="Thumbnail link"
         input-name="thumbnailLink"
         input-type="url"
-        :validation-rules="{ url: { require_protocol: true } }"
       />
 
       <button
@@ -52,7 +51,7 @@
       >
         Post
       </button>
-    </FormBase>
+    </form-base>
   </article>
 </template>
 
@@ -69,20 +68,13 @@ export default {
         date: new Date(),
         thumbnailLink: "",
       },
+      categories: categories,
     };
   },
-  computed: {
-    categories() {
-      return categories;
-    },
-  },
   methods: {
-    addPost() {
+    onSubmit() {
       this.$store.dispatch("addPost", this.post);
       this.$router.push("/posts");
-    },
-    onSubmit() {
-      // New post logic here
     },
   },
 };

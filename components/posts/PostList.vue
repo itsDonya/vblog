@@ -1,6 +1,6 @@
 <template>
   <article class="w-full flex flex-col items-center justify-center gap-6">
-    <Post v-for="post in posts" :key="post.id" v-bind="post" />
+    <Post v-for="post in posts" :key="post.fbID" v-bind="post" />
   </article>
 </template>
 
@@ -10,6 +10,11 @@ export default {
     posts: {
       type: Array,
     },
+  },
+  data() {
+    return {
+      test: "hey",
+    };
   },
 };
 </script>

@@ -16,9 +16,13 @@ export default {
   methods: {
     async getPostDetails() {
       const postId = this.$route.params.slug;
-      this.postDetails = await fetch(
+      const receivedPost = await fetch(
         `https://vblog-vue-default-rtdb.firebaseio.com/posts/${postId}.json`
       ).then((res) => res.json());
+      this.postDetails = {
+        fbID: postId,
+        ...receivedPost,
+      };
       this.isLoading = false;
     },
   },

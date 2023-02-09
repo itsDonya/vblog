@@ -27,7 +27,7 @@ export default {
       const postRef = ref(db, `posts/${postId}`);
       onValue(postRef, async (snapshot) => {
         const postDetails = await snapshot.val();
-        this.post = postDetails;
+        this.post = { fbID: postId, ...postDetails };
         this.isLoading = false;
       });
     },

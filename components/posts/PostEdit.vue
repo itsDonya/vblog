@@ -60,7 +60,7 @@ export default {
   data() {
     return {
       editedPost: {
-        id: this.id,
+        fbID: this.fbID,
         title: this.title,
         body: this.body,
         author: this.author,
@@ -72,7 +72,7 @@ export default {
     };
   },
   props: {
-    id: {
+    fbID: {
       type: [String, Number],
       required: true,
     },
