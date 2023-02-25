@@ -5,7 +5,10 @@ import { getDatabase, ref, onValue } from "firebase/database";
 export const state = () => ({
   userLoggedIn: true,
   fetched: false,
-  posts: null,
+  posts: [],
+  profile: {
+    localID: "sX7SqstOYYV2VcoF0yriS2FC6Nv2",
+  },
   // posts: [
   // {
   //   title: "Anything you should know about the cats",
@@ -20,14 +23,27 @@ export const state = () => ({
 });
 
 export const mutations = {
-  addPost(state, post) {
-    if (state.fetched) {
-      state.posts.unshift(post);
-    }
-  },
+  // addPost(state, post) {
+  //   if (state.fetched) {
+  //     state.posts.unshift(post);
+  //   }
+  // },
   setPosts(state, posts) {
-    state.posts = posts;
+    state.posts = [];
+    const slicedPosts = posts.slice();
+    state.posts = slicedPosts;
     state.fetched = true;
+  },
+  editExistedPost(state, editedPost) {
+    const postIndex = state.posts.findIndex(
+      (post) => post.fbID === editedPost.fbID
+    );
+    if (postIndex >= 0) {
+      // true
+      state[postIndex] = editedPost;
+      console.log(state[postIndex].title);
+      console.log(editedPost.title);
+    }
   },
 };
 
@@ -51,6 +67,7 @@ export const actions = {
         });
       }
       commit("setPosts", receivedPosts);
+      console.log("Fetched");
     });
   },
 
@@ -61,14 +78,16 @@ export const actions = {
       postDetails
     );
 
-    commit("addPost", postDetails);
+    // commit("addPost", postDetails);
   },
 
-  editPost(editedPost) {
-    this.$axios.$patch(
-      `https://vblog-vue-default-rtdb.firebaseio.com/posts/${editedPost.fbID}.json`,
-      { ...editedPost, edited: true, editDate: new Date() }
-    );
+  editPost({ commit }, editedPost) {
+    // this.$axios.$patch(
+    //   `https://vblog-vue-default-rtdb.firebaseio.com/posts/${editedPost.fbID}.json`,
+    //   { ...editedPost, edited: true, editDate: new Date() }
+    // );
+    // dispatch("fetchPosts");
+    commit("editExistedPost", editedPost);
   },
 };
 

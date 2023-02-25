@@ -1,6 +1,9 @@
 <template>
   <nuxt-link
-    :to="'/posts/' + fbID"
+    :to="{
+      path: `/posts/${convertToDashed(authorName)}/${convertToDashed(title)}`,
+      query: { id: fbID },
+    }"
     class="w-96 border-2 border-emerald-400 group rounded-xl p-5 flex flex-col items-start gap-3 hover:shadow-xl transition-all"
   >
     <img :src="thumbnailImg" class="w-full rounded-xl" :alt="title" />
@@ -18,7 +21,7 @@
 
     <div class="w-full flex items-center justify-between">
       <p class="text-xs text-zinc-400">Posted at {{ date | filterDate }}</p>
-      <p class="text-xs text-zinc-400">Written by {{ author }}</p>
+      <p class="text-xs text-zinc-400">Written by {{ authorName }}</p>
     </div>
   </nuxt-link>
 </template>
@@ -45,7 +48,7 @@ export default {
       type: [String, Date],
       required: true,
     },
-    author: {
+    authorName: {
       type: String,
       required: true,
     },
@@ -58,6 +61,11 @@ export default {
     thumbnailImg() {
       // Show default image if thumbnailLink doesn't exist
       return this.thumbnailLink || "./img/non-img.png";
+    },
+  },
+  methods: {
+    convertToDashed(text) {
+      return text.split(" ").join("-");
     },
   },
 };

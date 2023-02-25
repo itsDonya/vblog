@@ -21,7 +21,13 @@
       :alt="title"
     />
     <p class="text-zinc-400 text-sm italic">
-      Written by <span class="text-zinc-600 text-base">{{ author }}</span> at
+      Written by
+      <nuxt-link
+        class="text-zinc-600 text-base font-bold"
+        :to="'/' + authorName"
+        >{{ authorName }}</nuxt-link
+      >
+      at
       <span class="text-zinc-600 text-base">{{ date | filterDate }}</span>
       <span v-if="edited">(edited at {{ editDate | filterDate }} )</span>
     </p>
@@ -40,7 +46,11 @@ export default {
     thumbnailLink: {
       type: String,
     },
-    author: {
+    authorName: {
+      type: String,
+      required: true,
+    },
+    authorId: {
       type: String,
       required: true,
     },

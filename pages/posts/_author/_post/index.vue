@@ -18,7 +18,7 @@ export default {
   methods: {
     getPost() {
       this.isLoading = true;
-      const postId = this.$route.params.slug;
+      const postId = this.$route.query.id;
       const firebaseConfig = {
         databaseURL: "https://vblog-vue-default-rtdb.firebaseio.com",
       };

@@ -11,10 +11,5 @@ export default {
       type: Array,
     },
   },
-  data() {
-    return {
-      test: "hey",
-    };
-  },
 };
 </script>
